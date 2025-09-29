@@ -126,12 +126,13 @@
 
         display: flex;
         flex-flow: column nowrap;
-        gap: var(--spacing);
+        gap: calc(var(--spacing) / 2);
       }
     }
 
     & .socials {
       padding-block: var(--spacing);
+      margin-block-start: var(--spacing);
 
       display: flex;
       flex-flow: row wrap;
@@ -221,6 +222,8 @@
       }
 
       & .socials {
+        margin-block-start: 0px;
+
         justify-content: center;
 
         border-block-start: 1px solid hsl(0, 0%, 0%, 0.125);
