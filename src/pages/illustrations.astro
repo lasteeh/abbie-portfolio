@@ -1,0 +1,72 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ImageSpotlight from "../components/ImageSpotlight.astro";
+
+import i1 from "../assets/illustrations/feaa6cac-3066-4e2a-b483-3c725d4a8726_rw_1920.jpg";
+import i2 from "../assets/illustrations/4dcf47ae-2638-41fd-97cb-bf660e9a2083_rw_1920.jpg";
+import i3 from "../assets/illustrations/905e3c9b-01c5-40b8-8255-9d2c359a3762_rw_1920.png";
+import i4 from "../assets/illustrations/ebb032ab-ba67-44a3-ad93-ccd2aa889f19_rw_3840.jpg";
+import i5 from "../assets/illustrations/9f4ba361-8006-4993-8ae2-e3afd40e9a30_rw_1920.png";
+import i6 from "../assets/illustrations/333cf93e-430a-4db4-ba5c-91407b9cb8d5_rw_1920.jpg";
+import i7 from "../assets/illustrations/357d2bd5-a28c-4a87-8ece-028b8ac67186_rw_3840.png";
+
+---
+
+<MainLayout>
+    <header class="page-header">
+        <h1>Illustrations</h1>
+
+    </header>
+    
+    <section>
+        <p class="text-center mb-4">Explore a collection of my digital illustrations and artworks crafted during my leisure hours as a means to elevate my creativity and design skills. Ranging from mastering proportions to refining color choices, these pieces serve as a showcase for potential customers.</p>
+
+        <ul class="illustrations">
+            <li><ImageSpotlight source={i1} alt="image work" /></li>
+            <li><ImageSpotlight source={i2} alt="image work" /></li>
+            <li><ImageSpotlight source={i3} alt="image work" /></li>
+            <li><ImageSpotlight source={i4} alt="image work" /></li>
+            <li><ImageSpotlight source={i5} alt="image work" /></li>
+            <li><ImageSpotlight source={i6} alt="image work" /></li>
+            <li><ImageSpotlight source={i7} alt="image work" /></li>
+        </ul>
+
+        <p class="text-center my-4">Some clients express interest in purchasing these unique artworks for personal or business purposes. Moreover, I create these illustrations to assist clients in customizing their own graphics, ensuring a tailored fit for their business. Relax and enjoy the journey through my artistic creations!</p>
+
+    </section>
+</MainLayout>
+
+<style>
+    .illustrations {
+        list-style: none;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        gap: calc(var(--spacing) / 2);
+
+        & > * {
+            flex: 1 1 auto;
+            width: min(100%, 300px);
+            height: 100%;
+
+            &:nth-of-type(1),
+            &:nth-of-type(2) {
+                width: min(100%, 450px);
+            }
+        }
+    }
+
+    .illustrations :global(.image-spotlight) {
+        width: 100%;
+        height: 100%;
+    }
+        
+    .illustrations :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>
