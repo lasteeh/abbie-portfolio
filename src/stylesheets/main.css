@@ -336,3 +336,41 @@
     white-space: nowrap !important;
   }
 }
+
+@layer components {
+  .page-header {
+    padding-block: calc(var(--spacing) * 4);
+    padding-inline: calc(var(--spacing) * 2);
+
+    text-align: center;
+
+    & h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      max-width: 92ch;
+    }
+
+    & p {
+      max-width: 92ch;
+    }
+
+    @media screen and (width > 1024px) {
+      padding-block: calc(var(--spacing) * 6);
+
+      & h1 {
+        font-size: 1.625rem;
+      }
+    }
+  }
+
+  .page-section {
+    padding-inline: var(--spacing);
+    text-align: center;
+
+    & p {
+      max-width: 92ch;
+      margin-block-end: var(--spacing);
+      margin-inline: auto;
+    }
+  }
+}
