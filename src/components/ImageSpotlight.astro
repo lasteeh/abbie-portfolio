@@ -1,0 +1,16 @@
+---
+import { Image } from 'astro:assets';
+
+const { source, alt="" , buttonClass="" , imageClass="" } = Astro.props;
+---
+
+<button class={`image-spotlight | ${buttonClass}`} type="button">
+    <Image src={source} alt={alt} class={imageClass} />
+</button>
+
+<style>
+    .image-spotlight {
+        background-color: transparent;
+        border: none;
+    }
+</style>

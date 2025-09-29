@@ -338,6 +338,34 @@
     width: 1px !important;
     white-space: nowrap !important;
   }
+
+  .text-center {
+    padding-inline: var(--spacing);
+    text-align: center;
+    max-width: 92ch;
+    margin-inline: auto;
+  }
+
+  .my-1 {
+    margin-block: var(--spacing);
+  }
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
+  .my-4 {
+    margin-block: calc(var(--spacing) * 4);
+  }
+
+  .image-contain {
+    object-fit: contain;
+  }
+
+  .h-auto {
+    height: auto;
+  }
+  .w-auto {
+    width: auto;
+  }
 }
 
 @layer components {
@@ -347,14 +375,23 @@
 
     text-align: center;
 
+    & h1,
+    p {
+      max-width: 92ch;
+      margin-inline: auto;
+    }
+
     & h1 {
       font-size: 1rem;
       font-weight: 600;
-      max-width: 92ch;
     }
 
     & p {
-      max-width: 92ch;
+      margin-block-start: calc(var(--spacing) * 1);
+
+      &:first-of-type {
+        margin-block-start: calc(var(--spacing) * 3);
+      }
     }
 
     @media screen and (width > 1024px) {

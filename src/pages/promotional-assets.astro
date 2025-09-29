@@ -1,0 +1,112 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ImageSpotlight from "../components/ImageSpotlight.astro";
+
+import pa1 from "../assets/promotional-assets/f5156114-9a90-4580-a854-03996b5b6d4e_rw_1200.jpg";
+import pa2 from "../assets/promotional-assets/e978c170-d0e5-4f30-8bc3-c0306f9b4e45_rw_1200.png";
+import pa3 from "../assets/promotional-assets/c60b1732-2cda-4aaf-be91-362f23be8aae_rw_1920.png";
+import pa4 from "../assets/promotional-assets/df2b7167-cdf9-4c8a-af76-0e55cf3ce8a1_rw_1200.jpg";
+import pa5 from "../assets/promotional-assets/192fe26f-03b1-4158-bc8b-50ec89230738_rw_1200.jpg";
+import pa6 from "../assets/promotional-assets/00483f5c-9f57-47dc-becf-563050144d13_rw_1200.jpg";
+import pa7 from "../assets/promotional-assets/3ad5143e-9530-45a0-ab1f-7c844637c4f7_rw_1200.jpg";
+import pa8 from "../assets/promotional-assets/59e96a85-2cb1-44e8-a797-56721871b3de_rw_1200.jpg";
+import pa9 from "../assets/promotional-assets/20f7b361-93cf-4b7f-9fed-6ce1c407aa35_rw_1200.png";
+import pa10 from "../assets/promotional-assets/f1a8f3a0-fbe2-4a7e-964a-08b3c5dd6ed6_rw_1200.jpg";
+import pa11 from "../assets/promotional-assets/60969069-826c-473c-916a-cd4cbbc25427_rw_1200.jpg";
+import pa12 from "../assets/promotional-assets/92381d82-fc6d-476b-8140-47e57d3fa272_rw_1200.jpg";
+import pa13 from "../assets/promotional-assets/cbcfd745-3d87-48ab-b065-da06088d9d02_rw_1200.jpg";
+import pa14 from "../assets/promotional-assets/6fb81093-567d-4a5c-a727-454d63ade244_rw_1200.jpg";
+import pa15 from "../assets/promotional-assets/b49fdfd4-790f-4edb-b30d-09a7192bd3a7_rw_1200.jpg";
+import pa16 from "../assets/promotional-assets/6c97f24a-3f80-4fa4-8133-f4c8b7940b3d_rw_1200.jpg";
+
+import i1 from "../assets/promotional-assets/682df972-c167-4663-9bdd-9724e10ab01c.png";
+import e1 from "../assets/promotional-assets/f24d3956-1a9b-4cd8-9e91-3256c748bf84_rw_1200.png";
+import e2 from "../assets/promotional-assets/746aaacc-e6cb-4ad7-8934-baa0e47776a9_rw_1200.png";
+import e3 from "../assets/promotional-assets/24e9ce39-11d5-4299-a0b3-d9f9a6d27ff6_rw_1200.png";
+
+---
+
+<MainLayout>
+    <header class="page-header">
+        <h1>Promotional Assets</h1>
+
+        <p>Check out my promotional graphics, where every design is made to stand out. From bold visuals to stylish templates, each piece is created based on the client’s needs and color preferences.</p>
+    </header>
+
+    <section>
+        <ul class="works">
+            <li><ImageSpotlight source={pa1} alt="image work" /></li>
+            <li><ImageSpotlight source={pa2} alt="image work" /></li>
+            <li><ImageSpotlight source={pa3} alt="image work" /></li>
+            <li><ImageSpotlight source={pa4} alt="image work" /></li>
+            <li><ImageSpotlight source={pa5} alt="image work" /></li>
+            <li><ImageSpotlight source={pa6} alt="image work" /></li>
+            <li><ImageSpotlight source={pa7} alt="image work" /></li>
+            <li><ImageSpotlight source={pa8} alt="image work" /></li>
+            <li><ImageSpotlight source={pa9} alt="image work" /></li>
+            <li><ImageSpotlight source={pa10} alt="image work" /></li>
+            <li><ImageSpotlight source={pa11} alt="image work" /></li>
+            <li><ImageSpotlight source={pa12} alt="image work" /></li>
+            <li><ImageSpotlight source={pa13} alt="image work" /></li>
+            <li><ImageSpotlight source={pa14} alt="image work" /></li>
+            <li><ImageSpotlight source={pa15} alt="image work" /></li>
+            <li><ImageSpotlight source={pa16} alt="image work" /></li>
+        </ul>
+
+        <p class="text-center my-4">Here are some of the assets I posted that made an impact on the company's social media, leading to messages and increased engagement.</p>
+
+        <ImageSpotlight source={i1} alt="image work" imageClass="image-contain h-auto" />
+        
+        <p class="text-center my-4">This is the design I created in response to a client's request for an e-book cover tailored for realtors and contractors. It's available on Amazon if you're interested!</p>
+        
+        <div class="ebook-covers">
+            <ImageSpotlight source={e1} alt="image work" />
+            <ImageSpotlight source={e2} alt="image work" />
+            <ImageSpotlight source={e3} alt="image work" />
+        </div>
+
+        <p class="text-center my-4">Feel free to explore the rest of my portfolio to see a variety of designs, marketing assets, and creative projects I’ve worked on. Each piece reflects my passion for visual storytelling and my commitment to delivering impactful content. Whether it’s graphics, videos, or website designs. Take a look around and see my work in action!</p>
+
+    </section>
+</MainLayout>
+
+<style>
+    .works {
+        list-style: none;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        gap: calc(var(--spacing) / 2);
+        max-width: 100%;
+    }
+        
+    .works :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+    }
+    
+    .works :global(.image-spotlight) {
+        aspect-ratio: 1 / 1;
+    }
+    
+    .ebook-covers {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: calc(var(--spacing) / 2);
+        
+        max-width: 100%;
+        
+        & > * {
+            flex: 1 1 30%;
+        }
+    }
+    
+    .ebook-covers :global(img) {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+</style>
