@@ -355,6 +355,9 @@
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
+  .mb-4 {
+    margin-block-end: calc(var(--spacing) * 4);
+  }
 
   .image-contain {
     object-fit: contain;

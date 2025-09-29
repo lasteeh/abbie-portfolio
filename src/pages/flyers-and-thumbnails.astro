@@ -1,0 +1,104 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ImageSpotlight from "../components/ImageSpotlight.astro";
+
+import fat1 from "../assets/flyers-and-thumbnails/aad40a35-4cc9-4324-a56b-a998b22bb227_rw_1200.jpg";
+import fat2 from "../assets/flyers-and-thumbnails/8d26203f-220c-46e0-acc2-9eae1480b8cf_rw_1200.jpg";
+import fat3 from "../assets/flyers-and-thumbnails/33f6aa85-88f8-458a-b86c-3c5db5d17495_rw_1920.png";
+import fat4 from "../assets/flyers-and-thumbnails/30ab5712-72a9-4bb4-a5d6-7b10d5ba5ea8_rw_1200.jpg";
+
+import t1 from "../assets/flyers-and-thumbnails/6030ca27-7678-41fb-b3a1-44227fb4d4c6.png";
+import t2 from "../assets/flyers-and-thumbnails/496e1404-dc59-4a08-b420-53e68d273057.png";
+import t3 from "../assets/flyers-and-thumbnails/4f4b46a9-028b-4701-98d0-cbbfa2e9c194.png";
+
+import ho1 from "../assets/flyers-and-thumbnails/c8553174-283e-4a91-87ed-1c41ef8e33c0_rw_1920.png";
+import ho2 from "../assets/flyers-and-thumbnails/5e1f4a25-b7ba-4b1a-a04c-183f1d66f360_rw_1920.png";
+import ho3 from "../assets/flyers-and-thumbnails/686e4590-0e02-4533-be5d-41c6f817fcd7_rw_1920.png";
+
+import ee1 from "../assets/flyers-and-thumbnails/ee167712akk-ip.png";
+import ee2 from "../assets/flyers-and-thumbnails/ee17268hakl-op.png";
+import ee3 from "../assets/flyers-and-thumbnails/ee2897198-1.png";
+import ee4 from "../assets/flyers-and-thumbnails/ee2798782-2.png";
+import ee5 from "../assets/flyers-and-thumbnails/ee2768991-3.png";
+import ee6 from "../assets/flyers-and-thumbnails/ee2123678-4.png";
+
+---
+
+<MainLayout>
+    <header class="page-header">
+        <h1>Flyers and Thumbnails</h1>
+
+    </header>
+    
+    <section>
+        <p class="text-center mb-4">Here are some flyer samples I created to help increase visibility for my client's webinars and workshops. I also designed a business handout to showcase their brand effectively. Plus, check out my eye-catching YouTube thumbnails for the videos I edit, which will soon be featured on our channel.</p>
+
+        <ul class="flyers">
+            <li><ImageSpotlight source={fat1} alt="image work" /></li>
+            <li><ImageSpotlight source={fat2} alt="image work" /></li>
+            <li><ImageSpotlight source={fat3} alt="image work" /></li>
+            <li><ImageSpotlight source={fat4} alt="image work" /></li>
+        </ul>
+
+        <p class="text-center my-4">Here are the sample designs and templates I've created specifically for webinar handouts. Throughout the process, I went through careful revisions to ensure the highest quality, making sure every detail aligned with the webinar's objectives and delivered a polished final product.</p>
+
+        <div class="handouts">
+            <ImageSpotlight source={ho1} alt="image work" />
+            <ImageSpotlight source={ho2} alt="image work" buttonClass="span2" />
+            <ImageSpotlight source={ho3} alt="image work" />
+        </div>
+        
+        <p class="text-center my-4">I have managed YouTube channels by organizing content, uploading videos, designing thumbnails, and optimizing the channel to improve visibility and engagement.</p>
+        
+        <ImageSpotlight source={t1} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={t2} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={t3} alt="image work" imageClass="image-contain h-auto" />
+
+        <p class="text-center my-4">One of the most fun parts of creating flyers and YouTube thumbnails is the creative freedom it gives me. I enjoy experimenting with colors, typography, and layouts to make designs that grab attention and communicate a clear message. For YouTube thumbnails, it's especially exciting because they play a big role in attracting viewers.</p>
+
+        <ImageSpotlight source={ee1} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={ee2} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={ee3} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={ee4} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={ee5} alt="image work" imageClass="image-contain h-auto" />
+        <ImageSpotlight source={ee6} alt="image work" imageClass="image-contain h-auto" />
+
+    </section>
+</MainLayout>
+
+<style>
+    .flyers {
+        list-style: none;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        gap: calc(var(--spacing) / 2);
+    }
+        
+    .flyers :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+    }
+
+    .handouts {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: calc(var(--spacing) / 2);
+    }
+
+    .handouts :global(img) {
+        width: 100%;
+        height: 100%;
+    }
+
+    .handouts :global(.image-spotlight) {
+        flex: 1 1 30%;
+        height: auto;
+    }
+    .handouts :global(.image-spotlight.span2) {
+        flex-grow: 4;
+    }
+</style>
