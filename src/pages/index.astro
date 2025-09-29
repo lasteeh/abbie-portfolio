@@ -1,16 +1,155 @@
 ---
+import MainLayout from "./layouts/MainLayout.astro";
+import { Image } from 'astro:assets';
+
+import promotionalAssets from "../assets/promotional-assets-800x451.jpg";
+import flyersAndThumbnails from "../assets/flyers-and-thumbnails-800x451.jpg";
+import logosAndBranding from "../assets/logos-and-branding-800x451.jpg";
+import videosAndReels from "../assets/videos-and-reels-800x451.jpg";
+import websitesAndLandingPages from "../assets/websites-and-landing-pages-800x451.jpg";
+import illustration from "../assets/illustrations-800x451.jpg";
 
 ---
+<MainLayout>
+	<section id="intro">
+		<h1 class="sr-only">Abigail Propsero - Virtual Assistant, Licensed Teacher, Graphic Designer</h1>
+		<p class="intro">Hi, my name is Abigail Prospero, and as an all-around Virtual Assistant and Social Media Manager, I specialize in creating eye-catching graphics, logos, flyers, thumbnails, illustrations, and videos. I also design sleek websites and landing pages with a creative touch.</p>
+		<p>Scroll down to check out my work!</p>
+	</section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+	<section id="works">
+		<ul>
+			<li>
+				<a href="">
+					<Image src={promotionalAssets} aria-hidden="true" alt="visual element" />
+					<span>Promotional Assets</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<Image src={flyersAndThumbnails} aria-hidden="true" alt="" />
+					<span>Flyers and Thumbnails</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<Image src={logosAndBranding} aria-hidden="true" alt="" />
+					<span>Logos and Branding</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<Image src={videosAndReels} aria-hidden="true" alt="" />
+					<span>Videos and Reels</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<Image src={websitesAndLandingPages} aria-hidden="true" alt="" />
+					<span>Wesites and Landing Pages</span>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<Image src={illustration} aria-hidden="true" alt="" />
+					<span>Illustration</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+</MainLayout>
+
+<style>
+	#intro {
+		padding-block: calc(var(--spacing) * 2);
+		padding-inline: calc(var(--spacing) * 2);
+		background-color: hsl(0, 0%, 95%);
+
+		& p {
+			max-width: 58ch;
+			margin-inline: auto;
+			text-align: center;
+			margin-block: var(--spacing);
+		}
+
+		& .intro {
+			font-weight: 600;
+			font-size: 1rem;
+		}
+	}
+
+	@media screen and (width > 1024px) {
+		#intro {
+			padding-block: calc(var(--spacing) * 4);
+			
+			& .intro {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	#works {
+
+		& img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			object-fit: cover;
+
+			transition: opacity 100ms ease-in-out;
+		}
+		
+		& span {
+			opacity: 0;
+			
+			transition: opacity 100ms ease-in-out;
+		}
+
+		& a {
+			font-size: clamp(1rem, 5vw, 1.5rem);
+			text-decoration: none;
+			font-weight: 600;
+			color: var(--clr-light-neutral);
+
+			position: relative;
+
+			display: block;
+			width: 100%;
+			height: 100%;
+			place-content: center;
+
+			text-align: center;
+
+			background-color: var(--clr-primary);
+
+			isolation: isolate;
+
+			&:hover {
+				& img {
+					opacity: 0.1;
+				}
+
+				& span {
+					opacity: 1;
+				}
+			}
+		}
+
+		& ul {
+			list-style: none;
+
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center;
+			gap: calc(var(--spacing) / 4);
+
+			& > * {
+				flex: 1 1 420px;
+				aspect-ratio: 16 / 9;
+			}
+		}
+	}
+</style>

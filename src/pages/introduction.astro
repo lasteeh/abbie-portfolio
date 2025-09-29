@@ -1,0 +1,53 @@
+---
+import MainLayout from "./layouts/MainLayout.astro";
+
+
+---
+
+<MainLayout>
+    <header class="page-header">
+        <h1>Introduction</h1>
+    </header>
+
+    <section>
+        <p>With four years of experience as a Virtual Assistant and Social Media Manager, I've gained solid skills in design and marketing. I create engaging promotional graphics, unique logos, eye-catching flyers and thumbnails, and well-edited video content. I also build quality websites and landing pages, with a strong focus on illustrations.</p>
+        <p>Feel free to explore my portfolio, a collection of my work that showcases my skills and creativity in creating visuals that help brands stand out and grow online.</p>
+    </section>
+</MainLayout>
+
+<style>
+    .page-header {
+        padding-block: calc(var(--spacing) * 4);
+        padding-inline: calc(var(--spacing) * 2);
+        
+        & h1 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @media screen and (width > 1024px) {
+            padding-block: calc(var(--spacing) * 6);
+
+            & h1 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    section {
+        padding-inline: var(--spacing);
+
+        & p {
+            max-width: 92ch;
+            margin-block-end: var(--spacing);
+            margin-inline: auto;
+        }
+    }
+</style>
+
+<style is:global>
+    main {
+        text-align: center;
+    }
+</style>
+
