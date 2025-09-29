@@ -1,0 +1,79 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ImageSpotlight from "../components/ImageSpotlight.astro";
+
+import l1 from "../assets/logos-and-branding/cfa7ab9d-56f8-411f-9093-b089db498ba1_rw_1200.png";
+import l2 from "../assets/logos-and-branding/c403ed84-577f-42b7-8467-827df4ccfc13_rw_600.png";
+import l3 from "../assets/logos-and-branding/a6d96969-4c54-4e08-b0a8-a8febe72eb3b_rw_600.png";
+import l4 from "../assets/logos-and-branding/0093cfb8-8695-47a4-8624-cc33df475ab0_rw_1200.png";
+import l5 from "../assets/logos-and-branding/6cb95008-0a73-4cb2-b1cc-099803948d67_rw_1200.jpg";
+import l6 from "../assets/logos-and-branding/56c79d69-2ea4-4219-86e1-2d56200a4e32_rw_1200.png";
+import l7 from "../assets/logos-and-branding/b4e13e7f-be73-4688-8501-88602c54130c_rw_1920.jpg";
+import l8 from "../assets/logos-and-branding/5f49daf8-b357-482c-9bfc-85b74ef7c74e_rw_600.png";
+
+import b1 from "../assets/logos-and-branding/d931b180-cb55-4ceb-b5ab-70fa60f176a6.png";
+
+---
+
+<MainLayout>
+    <header class="page-header">
+        <h1>Logos and Branding</h1>
+
+    </header>
+    
+    <section id="logos-and-branding">
+        <p class="text-center mb-4">I specialize in creating two distinct types of logos, having previously accepted commissions for both business and corporate logos.</p>
+
+        <ul class="logos">
+            <li><ImageSpotlight source={l1} alt="image work" /></li>
+            <li><ImageSpotlight source={l2} alt="image work" /></li>
+            <li><ImageSpotlight source={l3} alt="image work" /></li>
+            <li><ImageSpotlight source={l4} alt="image work" /></li>
+            <li><ImageSpotlight source={l5} alt="image work" /></li>
+            <li><ImageSpotlight source={l6} alt="image work" /></li>
+            <li><ImageSpotlight source={l7} alt="image work" /></li>
+            <li><ImageSpotlight source={l8} alt="image work" /></li>
+        </ul>
+
+        <p class="text-center my-4">I also developed a custom email signature that can be seamlessly integrated into various email and CRM platforms. I built it from scratch using VS Code, coding everything manually.</p>
+
+        <ImageSpotlight source={b1} alt="image work" imageClass="image-contain h-auto" buttonClass="display-block mx-auto" />
+        
+        <p class="text-center my-4">I’ve designed logos for both businesses and personal projects, allowing me to work with different styles and brand identities. For corporate logos, I focus on making them professional, clear, and aligned with the company’s image. For commissioned projects, I enjoy creating unique and personalized designs based on individual ideas. Whether for a brand or a personal project, I make sure every logo is eye-catching and meaningful.</p>
+
+    </section>
+</MainLayout>
+
+<style>
+    .logos {
+        list-style: none;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        gap: calc(var(--spacing) / 2);
+
+        & > * {
+            --size: 350px;
+
+            flex: 0 1 auto;
+            width: min(100%, var(--size));
+            height: 100%;
+            max-height: var(--size);
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    .logos :global(.image-spotlight) {
+        width: 100%;
+        height: 100%;
+    }
+        
+    .logos :global(img) {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+</style>

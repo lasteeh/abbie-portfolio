@@ -369,6 +369,14 @@
   .w-auto {
     width: auto;
   }
+
+  .mx-auto {
+    margin-inline: auto;
+  }
+
+  .display-block {
+    display: block;
+  }
 }
 
 @layer components {
