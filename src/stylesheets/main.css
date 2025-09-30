@@ -179,6 +179,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
+      overflow-x: clip;
 
       & > p {
         padding-block: calc(var(--spacing) * 1);
@@ -392,6 +393,121 @@
     }
     to {
       background-position: -100% 0;
+    }
+  }
+
+  #image-spotlight {
+    inset: 0;
+    margin: auto;
+    width: min(100%, 100vw);
+    height: min(100%, 100vh);
+    max-height: 90vh;
+    max-width: 90vw;
+    border: none;
+    background-color: transparent;
+
+    &::backdrop {
+      background-color: hsl(0, 0%, 100%, 0.9);
+    }
+
+    & > .container {
+      position: relative;
+      isolation: isolate;
+      height: 100%;
+      max-height: 100%;
+      overflow: auto;
+
+      place-items: center;
+      place-content: center;
+
+      overscroll-behavior: contain;
+    }
+
+    &[data-loading="true"] img {
+      opacity: 0;
+    }
+    &[data-loading="false"] img {
+      opacity: 1;
+    }
+
+    & img {
+      object-fit: contain;
+      transition: opacity 250ms ease-in-out;
+    }
+
+    & button {
+      display: block;
+      border: none;
+
+      &:not([data-type="image"]) {
+        padding: calc(var(--spacing) / 2);
+      }
+
+      &[data-type="image"] {
+        position: relative;
+        min-width: 5px;
+        min-height: 5px;
+        max-height: 100%;
+
+        &[aria-expanded="false"] {
+          z-index: 1;
+          cursor: zoom-in;
+
+          & img {
+            height: 100%;
+            max-height: calc(90vh - 5px);
+            width: auto;
+          }
+        }
+        &[aria-expanded="true"] {
+          z-index: 3;
+          cursor: zoom-out;
+
+          & img {
+            width: 100vw;
+            height: auto;
+            max-height: unset;
+          }
+        }
+      }
+
+      &[data-type="next"],
+      &[data-type="prev"] {
+        position: absolute;
+        inset-block: 0;
+        height: 100%;
+        width: 30%;
+        z-index: 2;
+
+        background-color: hsl(0, 0%, 100%, 0.125);
+      }
+
+      &[data-type="next"] {
+        place-items: end;
+        right: 0;
+      }
+      &[data-type="prev"] {
+        left: 0;
+      }
+
+      &[data-type="close"] {
+        position: absolute;
+        top: calc(var(--spacing) / 1);
+        right: calc(var(--spacing) / 1);
+        z-index: 4;
+      }
+    }
+
+    & .icon {
+      display: block;
+      width: 2rem;
+      aspect-ratio: 1 / 1;
+      place-content: center;
+
+      & svg {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
