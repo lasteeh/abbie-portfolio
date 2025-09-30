@@ -127,6 +127,8 @@
         display: flex;
         flex-flow: column nowrap;
         gap: calc(var(--spacing) / 2);
+
+        font-size: 0.925rem;
       }
     }
 
