@@ -1,0 +1,115 @@
+---
+import { Image } from 'astro:assets';
+
+import promotionalAssets from "../assets/promotional-assets-800x451.jpg";
+import flyersAndThumbnails from "../assets/flyers-and-thumbnails-800x451.jpg";
+import logosAndBranding from "../assets/logos-and-branding-800x451.jpg";
+import videosAndReels from "../assets/videos-and-reels-800x451.jpg";
+import websitesAndLandingPages from "../assets/websites-and-landing-pages-800x451.jpg";
+import illustration from "../assets/illustrations-800x451.jpg";
+
+const items = [
+  { image: promotionalAssets, link: "/promotional-assets", text: "Promotional Assets" },
+  { image: flyersAndThumbnails, link: "/flyers-and-thumbnails", text: "Flyers and Thumbnails" },
+  { image: logosAndBranding, link: "/logos-and-branding", text: "Logos and Branding" },
+  { image: videosAndReels, link: "/videos-and-reels", text: "Videos and Reels" },
+  { image: websitesAndLandingPages, link: "/websites-and-landing-pages", text: "Websites and Landing Pages" },
+  { image: illustration, link: "/illustrations", text: "Illustration" }
+];
+
+const shuffleAndPick = (arr: any) => {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, 2);
+};
+
+const currentPage = Astro.url.pathname;
+const filteredItems = items.filter(item => item.link !== currentPage);
+const randomItems = shuffleAndPick(filteredItems);
+---
+
+<section id="random-works">
+        <h2 class="text-center my-2 fw-600">You may also like</h2>
+
+        <ul>
+            {randomItems.map(item => (
+                <li>
+                    <a href={item.link}>
+                        <Image src={item.image} aria-hidden="true" alt="visual element" />
+                        <span>{item.text}</span>
+                    </a>
+                </li>
+            ))}
+		</ul>
+</section>
+
+<style>
+    #random-works {
+        margin-block-start: calc(var(--spacing) * 6);
+
+		& img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			object-fit: cover;
+
+			transition: opacity 100ms ease-in-out;
+		}
+		
+		& span {
+			opacity: 0;
+
+			transition: opacity 100ms ease-in-out;
+		}
+
+		& a {
+			font-size: clamp(1rem, 5vw, 1.5rem);
+			text-decoration: none;
+			font-weight: 600;
+			color: var(--clr-light-neutral);
+
+			position: relative;
+
+			display: block;
+			width: 100%;
+			height: 100%;
+			place-content: center;
+
+			text-align: center;
+
+			background-color: var(--clr-primary);
+
+			isolation: isolate;
+
+			&:hover {
+				& img {
+					opacity: 0.1;
+				}
+
+				& span {
+					opacity: 1;
+				}
+			}
+		}
+
+		& ul {
+			list-style: none;
+
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center;
+			gap: calc(var(--spacing) / 4);
+
+			& > * {
+				flex: 1 1 420px;
+				aspect-ratio: 16 / 9;
+			}
+		}
+	}
+</style>

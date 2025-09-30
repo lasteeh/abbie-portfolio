@@ -346,6 +346,10 @@
     margin-inline: auto;
   }
 
+  .fw-600 {
+    font-weight: 600;
+  }
+
   .my-1 {
     margin-block: var(--spacing);
   }
