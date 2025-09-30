@@ -307,7 +307,7 @@
   }
 
   #back-to-top {
-    z-index: 4;
+    z-index: 3;
 
     position: fixed;
     bottom: calc(var(--spacing) * 2);
@@ -323,6 +323,75 @@
 
     &:hover {
       background-color: hsl(0, 0%, 50%, 0.75);
+    }
+  }
+
+  html:has(body[data-loading="true"]) {
+    cursor: wait;
+  }
+
+  #loader {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    z-index: 4;
+    background-color: var(--clr-light-neutral);
+    isolation: isolate;
+
+    [data-loading="false"] & {
+      animation: loaded 250ms ease-in-out 100ms forwards;
+
+      &::before {
+        animation: fullbar 100ms ease-in-out forwards;
+      }
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      width: 2%;
+      height: calc(var(--spacing) / 4);
+      background-image: linear-gradient(
+        to right,
+        var(--clr-primary),
+        hsl(from var(--clr-primary) h s calc(l + 10))
+      );
+      background-size: 200% 100%;
+
+      transition: width 100ms ease-in-out;
+      animation: halfbar 100ms ease-in-out forwards,
+        gradient 2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes loaded {
+    to {
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
+    }
+  }
+
+  @keyframes halfbar {
+    to {
+      width: 30%;
+    }
+  }
+  @keyframes fullbar {
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes gradient {
+    from {
+      background-position: 100% 0;
+    }
+    to {
+      background-position: -100% 0;
     }
   }
 }
