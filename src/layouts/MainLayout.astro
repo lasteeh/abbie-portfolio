@@ -1,5 +1,7 @@
 ---
 import "../stylesheets/main.css";
+
+const currentPage = Astro.url.pathname;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -29,12 +31,12 @@ import "../stylesheets/main.css";
                     <a href="/">Work</a>
 
                     <ul>
-                        <li><a href="/promotional-assets">Promotional Assets</a></li>
-                        <li><a href="/flyers-and-thumbnails">Flyers and Thumbnails</a></li>
-                        <li><a href="/logos-and-branding">Logos and Branding</a></li>
-                        <li><a href="/videos-and-reels">Videos and Reels</a></li>
-                        <li><a href="/websites-and-landing-pages">Websites and Landing Pages</a></li>
-                        <li><a href="/illustrations">Illustrations</a></li>
+                        <li><a href="/promotional-assets" class={currentPage === "/promotional-assets" ? "fw-600" : ""}>Promotional Assets</a></li>
+                        <li><a href="/flyers-and-thumbnails" class={currentPage === "/flyers-and-thumbnails" ? "fw-600" : ""}>Flyers and Thumbnails</a></li>
+                        <li><a href="/logos-and-branding" class={currentPage === "/logos-and-branding" ? "fw-600" : ""}>Logos and Branding</a></li>
+                        <li><a href="/videos-and-reels" class={currentPage === "/videos-and-reels" ? "fw-600" : ""}>Videos and Reels</a></li>
+                        <li><a href="/websites-and-landing-pages" class={currentPage === "/websites-and-landing-pages" ? "fw-600" : ""}>Websites and Landing Pages</a></li>
+                        <li><a href="/illustrations" class={currentPage === "/illustrations" ? "fw-600" : ""}>Illustrations</a></li>
                     </ul>
                 </li>
                 <li><a href="/qualifications">Qualifications</a></li>
