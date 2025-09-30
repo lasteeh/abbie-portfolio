@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import ab from "../assets/ab-opt.png";
+
 import "../stylesheets/main.css";
 
 const currentPage = Astro.url.pathname;
@@ -12,11 +15,17 @@ const currentPage = Astro.url.pathname;
     <meta name="description" content="Abigail Prospero — Virtual Assistant, Licensed Teacher & Graphic Designer. 4 years' experience creating logos, social media graphics, websites, videos and ad campaigns.">
     <meta name="keywords" content="Abigail Prospero, Virtual Assistant, Social Media Manager, Licensed Teacher, Graphic Designer, Logo Design, Flyer Design, Thumbnails, Illustrations, Video Editing, Website Design, Landing Pages, Branding, Marketing Strategies, Canva, Adobe Photoshop, Adobe Illustrator, Digital Art, Content Creation, Healthcare Marketing, Real Estate Marketing, Education Marketing, Ad Campaigns">
     <script src="../scripts/main.js"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body data-loading="true">
     <div id="loader"></div>
     <header id="main-header">
-        <p><a href="/">Abigail Prospero</a></p>
+        <p>
+            <a href="/">
+                <Image src={ab} alt="photo of Abigail">
+                <span class="sr-only">Abigail Prospero</span>
+            </a>
+        </p>
         <button id="main-nav-btn" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')" aria-expanded="false">
             <span class="sr-only">Menu</span>
             <i class="icon">

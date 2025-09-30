@@ -98,10 +98,17 @@
     }
 
     & > p {
+      height: 150px;
       font-weight: 600;
       font-size: clamp(1.25rem, 5vw, 1.625rem);
-      padding-block: calc(var(--spacing) * 2);
+      padding-block: calc(var(--spacing) / 1);
       padding-inline: calc(var(--spacing) * 1);
+
+      & img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
     }
 
     & > nav {
@@ -182,7 +189,9 @@
       overflow-x: clip;
 
       & > p {
-        padding-block: calc(var(--spacing) * 1);
+        height: 86px;
+        padding-block: calc(var(--spacing) / 2);
+        padding-inline: 16px;
       }
 
       &:has(#main-nav-btn[aria-expanded="true"]) nav {
