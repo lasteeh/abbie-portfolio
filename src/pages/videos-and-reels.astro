@@ -1,0 +1,103 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+import vr1 from "../assets/videos-and-reels/4xTXwr5tgSh_576.mp4";
+import vrp1 from "../assets/videos-and-reels/4xTXwr5tgSh_poster.jpg";
+import vr2 from "../assets/videos-and-reels/WI2QvgsLitJ_360.mp4";
+import vrp2 from "../assets/videos-and-reels/WI2QvgsLitJ_poster.jpg";
+import vr3 from "../assets/videos-and-reels/Q9Vz4FfhEcm_576.mp4";
+import vrp3 from "../assets/videos-and-reels/Q9Vz4FfhEcm_poster.jpg";
+import vr4 from "../assets/videos-and-reels/JvMS6iBpi5U_576.mp4";
+import vrp4 from "../assets/videos-and-reels/JvMS6iBpi5U_poster.jpg";
+import vr5 from "../assets/videos-and-reels/8W9y8qyn4ix_576.mp4";
+import vrp5 from "../assets/videos-and-reels/8W9y8qyn4ix_poster.jpg";
+import vr6 from "../assets/videos-and-reels/PAmtfHTkIEt_576.mp4";
+import vrp6 from "../assets/videos-and-reels/PAmtfHTkIEt_poster.jpg";
+import vr7 from "../assets/videos-and-reels/Sy6_hNsEKnS_576.mp4";
+import vrp7 from "../assets/videos-and-reels/Sy6_hNsEKnS_poster.jpg";
+import vr8 from "../assets/videos-and-reels/58FtSzFbpJ2_360.mp4";
+import vrp8 from "../assets/videos-and-reels/58FtSzFbpJ2_poster.jpg";
+---
+
+<MainLayout>
+    <header class="page-header">
+        <h1>Videos and Reels</h1>
+
+    </header>
+    
+    <section>
+        <p class="text-center mb-4">Videos and reels are powerful tools for capturing attention and telling a story in a visually engaging way. Whether it’s promotional content, social media reels, or creative edits, I focus on creating videos that leave a lasting impression.</p>
+
+        <ul class="videos">
+            <li>
+                <video controls preload="none" poster={vrp1.src}>
+                    <source src={vr1} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp2.src}>
+                    <source src={vr2} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp3.src}>
+                    <source src={vr3} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp4.src}>
+                    <source src={vr4} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp5.src}>
+                    <source src={vr5} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp6.src}>
+                    <source src={vr6} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp7.src}>
+                    <source src={vr7} type="video/mp4">
+                </video>
+            </li>
+            <li>
+                <video controls preload="none" poster={vrp8.src}>
+                    <source src={vr8} type="video/mp4">
+                </video>
+            </li>
+        </ul>
+
+        <p class="text-center my-4">Here are some of the short-form videos and reels I’ve edited, but my experience goes beyond that. I also work on YouTube videos, podcasts, interviews, vlogs, and more, crafting engaging content that fits different formats and styles.</p>
+
+    </section>
+</MainLayout>
+
+<style>
+    .videos {
+        list-style: none;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        gap: calc(var(--spacing) / 2);
+
+        & > * {
+            --size: 350px;
+
+            flex: 0 1 auto;
+            width: min(100%, var(--size));
+            aspect-ratio: 9 / 16;
+        }
+
+        & video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+</style>
